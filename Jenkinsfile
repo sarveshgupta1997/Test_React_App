@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  triggers {
-    scm '*'
-  }
   stages {
     stage('Install') {
       steps {
