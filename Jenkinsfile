@@ -3,17 +3,17 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm install'
+        sh 'yarn install'
       }
     }
     stage('Build') {
       steps {
-        sh 'npm run build'
+        sh 'yarn run build'
       }
     }
     stage('Start') {
       steps {
-        sh 'npm run start'
+        sh 'yarn run start'
       }
     }
   }
