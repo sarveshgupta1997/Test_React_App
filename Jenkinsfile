@@ -1,20 +1,25 @@
 pipeline {
-  agent any
-  stages {
-    stage('Install') {
-      steps {
-        yarn install
-      }
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Start') {
+            steps {
+                sh 'npm run start'
+            }
+        }
     }
-    stage('Build') {
-      steps {
-        yarn run build
-      }
-    }
-    stage('Start') {
-      steps {
-        yarn run start
-      }
-    }
-  }
 }
